@@ -66,11 +66,25 @@ class Novel(name: String, year: Int, author: Writer) {
     - method to increment/decrement => new Counter
     - overload inc/dec to receive an amount
  */
-class Counter(val count: Int) {
-  def inc = new Counter(count + 1) // immutability: you can't change the contents of instances
-                          // you need to instatiate the instance again
-  def dec = new Counter(count - 1)
-
+class Counter(val count: Int = 0) {
+  // immutability: you can't change the contents of instances
+  // you need to instatiate the instance again
+  def inc = {
+    println("Incrementing")
+    new Counter(count + 1)
+  }
+  def dec = {
+    println("Decrementing")
+    new Counter(count - 1)
+  }
+  def inc(n: Int): Counter = {
+    if (n <= 0) this
+    else inc.inc(n-1)
+  }
+  def dec(n: Int): Counter = {
+    if (n <= 0) this
+    else dec.dec(n-1)
+  }
 
 }
 // Class parameters are NOT FIELDS
