@@ -16,7 +16,7 @@ object Objects extends App{
     val john = Person
     println(mary==john)
 
-    val mary = new Person
-    val john = new Person
+    val mary = new Person("Mary")
+    val john = new Person("John")
     println(mary==john)
 }
