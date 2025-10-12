@@ -12,11 +12,15 @@ object Objects extends App{
     println(Person.N_EYES)
 
     // Scala Object=Singleton Instance
-    val mary = Person
-    val john = Person
+    val mary = Person("Mary")
+    val john = Person("John")
+    println(mary==john)
+  /*
+  val mary = new Person("Mary")
+  val john = new Person("John")*/
     println(mary==john)
 
-    val mary = new Person("Mary")
-    val john = new Person("John")
-    println(mary==john)
+    // factory method , apply
+    // Scala application = scala objects with
+    // def main(args: Array[String]): Unit
 }
