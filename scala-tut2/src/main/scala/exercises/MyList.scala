@@ -16,7 +16,7 @@ abstract class MyList[+A] {
   def head: A
   def tail: MyList[A]
   def isEmpty: Boolean
-  def add[B >: A](element: B): MyList[B]
+  def add[B >: A](element: B): MyList[B] # B >: A is done to handle the covariance of MyList
   def printElements: String
   override def toString: String = "|" + printElements + "|"
 
@@ -27,7 +27,7 @@ abstract class MyList[+A] {
   def ++[B >: A](list: MyList[B]): MyList[B]
 }
 
-object Empty extends MyList[Nothing]{
+case object Empty extends MyList[Nothing]{
   def head: Nothing = throw new NoSuchElementException
   def tail: MyList[Nothing] = throw new NoSuchElementException
   def isEmpty: Boolean = true
@@ -41,7 +41,7 @@ object Empty extends MyList[Nothing]{
 
 }
 
-class Cons[+A](h: A, t: MyList[A]) extends MyList[A]{
+case class Cons[+A](h: A, t: MyList[A]) extends MyList[A]{
   def head: A = h
   def tail: MyList[A] = t
   def isEmpty: Boolean = false
