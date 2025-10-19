@@ -16,7 +16,8 @@ abstract class MyList[+A] {
   def head: A
   def tail: MyList[A]
   def isEmpty: Boolean
-  def add[B >: A](element: B): MyList[B] # B >: A is done to handle the covariance of MyList
+  // B >: A is done to handle the covariance of MyList
+  def add[B >: A](element: B): MyList[B]
   def printElements: String
   override def toString: String = "|" + printElements + "|"
 
