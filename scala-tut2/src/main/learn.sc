@@ -27,3 +27,25 @@ class Rational(x: Int, y: Int):
       Rational(numer * r.denom + r.numer * denom, denom * r.denom)
     def neg = Rational(-numer, denom)
     def sub(r: Rational) = add(r.neg)
+
+
+def removeAt[T](n: Int, xs: List[T]): List[T] = xs match
+  case Nil => Nil
+  case y :: ys =>
+    if n == 0 then ys
+    else y :: removeAt(n-2, ys)
+
+
+val xs = List('a', 'b', 'c', 'd', 'e')
+removeAt(2, xs)
+
+def flatten(xs: Any): List[Any] = xs match {
+  case Nil => Nil
+  case y :: ys => flatten(y) ++ flatten(ys)
+  case _ => xs :: Nil
+
+
+}
+
+val ys = List(List(1, 1), List(3, List(5, 8)))
+flatten(ys)

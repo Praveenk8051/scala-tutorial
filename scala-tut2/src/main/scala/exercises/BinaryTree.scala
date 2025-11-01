@@ -11,7 +11,7 @@ class Empty2 extends BinaryTree {
   def incl(x: Int): BinaryTree = NonEmpty(x, Empty2(), Empty2())
   def union(s: BinaryTree): BinaryTree = s
 }
-
+ 
 class NonEmpty(elem: Int, left: BinaryTree, right: BinaryTree) extends BinaryTree {
   def contains(x: Int): Boolean = {
     if x < elem then left.contains(x)
