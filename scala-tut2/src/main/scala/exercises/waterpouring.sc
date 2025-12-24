@@ -1,3 +1,4 @@
+// waterpouring game
 type Glass = Int
 type State = Vector[Int]
 
