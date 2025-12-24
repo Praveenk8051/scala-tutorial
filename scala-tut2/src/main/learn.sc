@@ -96,3 +96,5 @@ def inners =
   for  x <- trees: y <- trees yield Tree.Inner(x,y)
 
 trees.generate()
+
+
